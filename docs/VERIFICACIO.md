@@ -10,7 +10,7 @@ Les versions inclouen un fitxer **SHA256SUMS.txt**. A PowerShell:
 Get-FileHash .\Despert.exe -Algorithm SHA256
 ```
 
-Compara el resultat amb la línia de `Despert.exe` del manifest publicat amb la mateixa versió. Per als ZIP, utilitza el manifest `Despert-1.0.0-SHA256SUMS.txt`.
+Compara el resultat amb la línia de `Despert.exe` del manifest publicat amb la mateixa versió. Per als ZIP, utilitza el manifest `Despert-1.0.1-SHA256SUMS.txt`.
 
 SHA-256 verifica si dos fitxers tenen el mateix contingut. No substitueix una font de confiança per obtenir el manifest: convé consultar-lo a la publicació oficial del projecte. No és una signatura del desenvolupador. No s'utilitza MD5.
 
@@ -62,7 +62,7 @@ La coincidència exacta es refereix a **Despert.exe**, no als ZIP: els contenido
 .\build.ps1 -Test
 ```
 
-La sortida és `dist/1.0.0/Despert.exe`. Les proves comproven la lògica, les estructures Win32, les icones, les entrades i marques del menú, la construcció de les rutes d'inici i els avisos de sessió. No generen moviments de ratolí ni peticions d'energia, no registren l'aplicació a l'inici i no obren Configuració. Les proves visuals, d'inici de sessió i de repòs a l'equip real són manuals.
+La sortida és `dist/1.0.1/Despert.exe`. Les proves comproven la lògica, les estructures Win32, les icones, les entrades i marques del menú, la construcció de les rutes d'inici i els avisos de sessió. No generen moviments de ratolí ni peticions d'energia, no registren l'aplicació a l'inici i no obren Configuració. Les proves visuals, d'inici de sessió i de repòs a l'equip real són manuals.
 
 L'opció de desenvolupament `-Legacy` permet usar el compilador antic de Windows, però el resultat es marca com a no determinista i no serveix per a aquesta comprovació de la publicació.
 

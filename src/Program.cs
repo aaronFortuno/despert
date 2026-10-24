@@ -11,8 +11,12 @@ using System.Threading;
 using System.Windows.Forms;
 
 [assembly: AssemblyTitle("Despert")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyProduct("Despert")]
+[assembly: AssemblyCompany("Aarón Fortuño")]
+[assembly: AssemblyDescription("One-click Windows tray utility to keep your computer awake.")]
+[assembly: AssemblyCopyright("Copyright (c) 2026 Aarón Fortuño and Despert contributors")]
+[assembly: AssemblyVersion("1.0.1.0")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
 
 namespace Despert
 {

@@ -1,7 +1,7 @@
 param([switch]$SkipBuild)
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
-$version = '1.0.0'
+$version = '1.0.1'
 $release = Join-Path $root ('dist\' + $version)
 if (-not $SkipBuild) { & (Join-Path $root 'build.ps1') -Test }
 if (-not (Test-Path -LiteralPath (Join-Path $release 'Despert.exe'))) { throw 'Primer cal compilar la versio.' }

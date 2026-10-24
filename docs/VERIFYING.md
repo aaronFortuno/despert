@@ -5,10 +5,10 @@ You can use Despert without compiling it. The complete release archive contains 
 ## Check a download
 
 ```powershell
-Get-FileHash .\Despert-1.0.0-complete.zip -Algorithm SHA256
+Get-FileHash .\Despert-1.0.1-complete.zip -Algorithm SHA256
 ```
 
-Compare with the corresponding line in `Despert-1.0.0-SHA256SUMS.txt` from the project's release. The portable folder has its own `SHA256SUMS.txt`. SHA-256 compares content; obtain the manifest from a trusted source. It is not a developer signature, and MD5 is not used.
+Compare with the corresponding line in `Despert-1.0.1-SHA256SUMS.txt` from the project's release. The portable folder has its own `SHA256SUMS.txt`. SHA-256 compares content; obtain the manifest from a trusted source. It is not a developer signature, and MD5 is not used.
 
 ## Prepare tools
 
@@ -41,7 +41,7 @@ Exact identity applies to `Despert.exe`, not ZIP bytes. Different sources, resou
 .\package.ps1 -SkipBuild
 ```
 
-The app is built at `dist/1.0.0/Despert.exe`. Tests cover logic, startup command construction, Win32 structures, resources, menus, session messages, translations and passive About layout. They do not inject input, request power, change startup, open links, or write clipboard data. Interactive UI and device idle behavior are checked manually.
+The app is built at `dist/1.0.1/Despert.exe`. Tests cover logic, startup command construction, Win32 structures, resources, menus, session messages, translations and passive About layout. They do not inject input, request power, change startup, open links, or write clipboard data. Interactive UI and device idle behavior are checked manually.
 
 Packaging verifies a fresh rebuild and exports portable, source and complete archives with SHA-256 manifests. It does not publish to GitHub. The development-only `-Legacy` build is not guaranteed reproducible and is unsuitable for release verification.
 

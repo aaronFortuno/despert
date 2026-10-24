@@ -7,7 +7,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
-$version = '1.0.0'
+$version = '1.0.1'
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $projectRoot ('dist\' + $version) }
 $destination = [IO.Path]::GetFullPath($OutputDirectory)
 $buildOutput = Join-Path $projectRoot 'build'
@@ -47,6 +47,7 @@ if ($RegenerateIcons) {
 if (-not $sources.Count) { throw 'No hi ha fonts C#.' }
 $iconPath = Join-Path $projectRoot 'assets'
 $resourceArgs = @()
+$resourceArgs += '/resource:' + (Join-Path $iconPath 'lightning.modules') + ',Despert.Lightning.modules'
 foreach ($state in @('Inactive','Active')) {
     foreach ($theme in @('Light','Dark')) {
         $file = Join-Path $iconPath ($state.ToLowerInvariant() + '-' + $theme.ToLowerInvariant() + '.ico')
@@ -61,6 +62,7 @@ function FileRecord([string]$file, [string]$label) {
 }
 $inputFiles = @($sources)
 $inputFiles += Join-Path $iconPath 'app.manifest'
+$inputFiles += Join-Path $iconPath 'lightning.modules'
 $inputFiles += @(Get-ChildItem -LiteralPath $iconPath -Filter '*.ico' | Where-Object { $_.Name -notin @('active.ico','inactive.ico') } | ForEach-Object { $_.FullName })
 [string[]]$inputFiles = $inputFiles
 [Array]::Sort($inputFiles, [StringComparer]::Ordinal)

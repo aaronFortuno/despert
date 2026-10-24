@@ -55,18 +55,27 @@ namespace Despert
             content.Controls.Add(heading);
             content.Controls.Add(LabelFor(Strings.Get("V4VBody"), false));
 
-            FlowLayoutPanel contribution = new FlowLayoutPanel();
+            TableLayoutPanel contribution = new TableLayoutPanel();
             contribution.AutoSize = true;
-            contribution.WrapContents = true;
-            contribution.MaximumSize = new Size(440, 0);
+            contribution.ColumnCount = 2;
             contribution.Margin = new Padding(0, 6, 0, 0);
+            LightningQr qr = new LightningQr();
+            qr.Margin = new Padding(0, 0, 16, 0);
+            contribution.Controls.Add(qr, 0, 0);
+            FlowLayoutPanel details = new FlowLayoutPanel();
+            details.AutoSize = true;
+            details.FlowDirection = FlowDirection.TopDown;
+            details.WrapContents = false;
+            details.Anchor = AnchorStyles.Left;
+            details.Margin = Padding.Empty;
+            details.Controls.Add(LabelFor("Lightning Network", false));
             TextBox address = new TextBox();
             address.Text = ProjectInfo.LightningAddress;
             address.ReadOnly = true;
-            address.Width = 290;
+            address.Width = 240;
             address.AccessibleName = "Lightning Network";
-            address.Margin = new Padding(0, 4, 10, 0);
-            contribution.Controls.Add(address);
+            address.Margin = new Padding(0, 0, 0, 8);
+            details.Controls.Add(address);
             Button copy = new Button();
             copy.Text = Strings.Get("Copy");
             copy.AutoSize = true;
@@ -75,7 +84,9 @@ namespace Despert
                 try { Clipboard.SetText(ProjectInfo.LightningAddress); copy.Text = Strings.Get("Copied"); }
                 catch (Exception ex) { ShowError("CopyError", ex); }
             };
-            contribution.Controls.Add(copy);
+            copy.Margin = Padding.Empty;
+            details.Controls.Add(copy);
+            contribution.Controls.Add(details, 1, 0);
             content.Controls.Add(contribution);
 
             Button close = new Button();

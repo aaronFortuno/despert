@@ -8,11 +8,13 @@ Una petita utilitat portable per a Windows per mantenir l'ordinador despert amb 
 
 Extreu el paquet portable i obre **Despert.exe**. Necessita Windows 10/11 amb .NET Framework 4.8. No necessita instal·lació ni permisos d'administrador. Si ja tens una versió oberta, tanca-la des de **Surt** abans d'obrir la nova.
 
+**Editor desconegut:** el portable encara no està signat digitalment i Windows pot mostrar aquest avís o el de SmartScreen. La versió 1.0.1 afegeix el QR, però no resol la signatura. Consulta les [opcions estudiades](SIGNING.md).
+
 Un clic a la tassa alterna actiu/desactiu: **amb fum està actiu; sense fum està desactivat**. Comença sempre desactivat, també quan s'obre amb Windows. Un cop activat continua indefinidament fins que el desactives o surts. Arrossega la tassa des del desplegable **^** fins al costat del rellotge si la vols visible.
 
 Amb el botó dret tens **Activar/Desactivar**, **Iniciar amb Windows**, **Sobre…** i **Surt**. L'inici amb Windows és opcional, per al teu usuari i desmarcat per defecte. Deixa el fitxer en una ubicació fixa abans de marcar-ho. Si el mous, desmarca i torna a marcar l'opció des de la nova ubicació. Desmarca-la abans d'eliminar el programa. **Surt** només tanca l'execució actual.
 
-El diàleg **Sobre…** mostra versió, autor, repositori, portfoli, llicència MIT i un petit apartat V4V. Compartir, traduir, aportar idees o fer una contribució voluntària són maneres de retornar valor. L'adreça Lightning és **aptswim903@walletofsatoshi.com**, amb botó per copiar-la. Totes les funcions continuen sent gratuïtes.
+El diàleg **Sobre…** mostra versió, autor, repositori, portfoli, llicència MIT i un petit apartat V4V. Compartir, traduir, aportar idees o fer una contribució voluntària són maneres de retornar valor. Inclou el mateix QR Lightning de Pentagrama i l'adreça **aptswim903@walletofsatoshi.com**, amb botó per copiar-la. El QR és local, sense cap servei extern. Totes les funcions continuen sent gratuïtes.
 
 ## Idiomes i funcionament
 

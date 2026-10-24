@@ -1,32 +1,28 @@
-# Local review · Despert 1.0.0
+# Local review · Despert 1.0.1
 
-24 October 2026. First public release prepared locally. The user confirmed the previous UI and more than two hours of successful idle operation with the retained mechanism. The new About dialog and languages have automated local coverage; final interactive checks on the managed device remain manual.
+24 October 2026. This patch adds the author's existing Lightning QR and documents the Windows publisher warning. It **does not resolve Authenticode signing**; the executable remains unsigned. No remote application tests were performed.
 
-## Changes reviewed
+## QR implementation and provenance
 
-Removed both informational dialogs and the tray-visibility menu item. Successful startup changes are silent; errors still appear. The four native menu actions are activation, Windows startup, About, and Exit.
+The SVG is copied unchanged from the author's existing Pentagrama/Plec QR. A narrowly scoped local build tool converts its square-cell path to a canonical 45 × 45 module matrix. Normal builds embed the matrix; the app draws it using integer-sized black/white squares, retaining the four-module white quiet zone. There is no SVG renderer, barcode library, payment SDK or network request in the app. The address and copy button remain available beside the QR.
 
-About shows Aarón Fortuño, the repository, portfolio, MIT license and a voluntary Value for Value message. The Lightning address matches the author's existing public Pentagrama/Plec content. No QR generator, payment SDK, new runtime library, or network fetch is involved. Address copying and external links require a click. The dialog owns and disposes its icon and heading font; repeated activation reuses the open dialog.
-
-English, Catalan, Spanish, Basque and Galician live in one translation table. Selection uses Windows display-language `CurrentUICulture`, independent of regional number/date preferences. Unknown and invariant cultures fall back to English. Menus, tooltips, About, and application-owned error messages use this table. Windows/.NET exception details may use the language supplied by the OS.
-
-Kimi produced the initial translation table in one bounded `kimi-code/kimi-for-coding` call at low effort. It completed with three usage records in about 62 seconds: 5,555 uncached input tokens, 6,912 cached input tokens and 3,687 output tokens. Codex reviewed wording, corrected grammar and menu shortcuts, implemented the dialog and integration, and ran checks. This does not constitute native-speaker certification for every language; translation improvements are welcome.
-
-`Logic.cs` is unchanged. Changes to `Native.cs` only localize error strings; power, input, idle timing and session behavior are retained. Startup remains opt-in, current-user-only, and inactive on every new process. No automatic registry migration or Explorer preference writes were added.
+The QR's accessible description is localized into all five interface languages. The existing layout is retained and enlarged vertically for the QR. `Logic.cs`, `Native.cs`, startup, input and power behavior are unchanged from 1.0.0.
 
 ## Local validation
 
-- 35 logic checks and 14 pure startup-command checks.
-- INPUT and MENUITEMINFO binary contracts in 32- and 64-bit processes.
-- 136 resource, native-menu, appearance and session-notification checks.
-- 542 language and passive-dialog checks: complete translation arrays, matching placeholders, regional languages, English fallback, unique menu shortcuts, Enter/Escape, and offscreen renderings of all five languages.
+- 35 logic checks, 14 pure startup-command checks, and INPUT/MENUITEMINFO binary contracts in 32/64 bits.
+- 136 resource, native-menu, appearance and session checks.
+- 558 language/dialog/QR checks, including exact black/white module rendering and quiet-zone preservation at 135, 180, 225 and 270 pixels; the passive About dialog is rendered offscreen in all five languages.
+- An independent local ZXing-C++ 2.3.0 development-only reader decoded the four standalone QR images and all five About renders. All nine contained the original LNURL. Its Bech32 checksum was verified, and the decoded endpoint was `https://walletofsatoshi.com/.well-known/lnurlp/aptswim903`, matching the displayed address. The endpoint was not contacted.
 
-Menus are constructed without displaying them; only the passive About dialog is rendered offscreen for visual review. Automated checks do not start the active app, inject input, request power, register startup, open links, or copy clipboard data. No remote application checks are performed.
+The optional development-only QR decoder is not included in release packages and is not required for normal builds/tests. Automated checks do not start the active application, inject input, request power, register startup, open links, copy clipboard data or initiate a payment. Actual UI use and sleep behavior remain manual checks.
 
-The pinned Microsoft compiler/reference packages and canonical ICO assets produce deterministic builds. Packaging verifies a local rebuild. A second verification rebuilds the exported source from the complete ZIP in a different path and compares the executable byte for byte. ZIP bytes themselves are not claimed reproducible. Checksums do not replace trust in the distribution source or an author signature.
+Normal packaging verifies a deterministic rebuild. The exported source from the complete ZIP is also prepared and rebuilt in another local path and compared byte for byte with the distributed unsigned executable.
 
-## Limits
+## Publisher investigation
 
-The existing optional dark-menu integration uses guarded internal uxtheme exports, with a standard native-menu fallback. Actual themes, display scaling, startup and tray preference persistence depend on the Windows device and require manual checks. This release does not claim to override all managed-device policies.
+`Get-AuthenticodeSignature` reports `NotSigned` for 1.0.0. No available code-signing certificate was found in the current-user certificate store in the checked environment. Friendly product/company file metadata was added in 1.0.1; this does not establish a trusted Windows publisher.
 
-Historical local reviews: [0.1](docs/REVISIO-0.1.0.md), [0.2](docs/REVISIO-0.2.0.md), [0.3](docs/REVISIO-0.3.0.md), [0.4](docs/REVISIO-0.4.0.md).
+[Signing options and their prerequisites](docs/SIGNING.md) are documented using Microsoft and SignPath primary sources. No certificate was purchased, no signing application was submitted, and no third-party approval is claimed. No security setting or trust store was modified. Future Authenticode signing will require adapting the current exact-byte verification: signed distribution files and the deterministic unsigned build must have separate hashes.
+
+The guarded internal uxtheme dark-menu integration and manual device compatibility limits remain as described in the [1.0.0 review](docs/REVISIO-1.0.0.md).

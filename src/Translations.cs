@@ -52,7 +52,8 @@ namespace Despert
                 { "Copied", new string[] { "Address copied", "Adreça copiada", "Dirección copiada", "Helbidea kopiatu da", "Enderezo copiado" } },
                 { "CopyError", new string[] { "Could not copy the address: {0}", "No s'ha pogut copiar l'adreça: {0}", "No se pudo copiar la dirección: {0}", "Ezin izan da helbidea kopiatu: {0}", "Non se puido copiar o enderezo: {0}" } },
                 { "LinkError", new string[] { "Could not open the link: {0}", "No s'ha pogut obrir l'enllaç: {0}", "No se pudo abrir el enlace: {0}", "Ezin izan da esteka ireki: {0}", "Non se puido abrir a ligazón: {0}" } },
-                { "Close", new string[] { "Close", "Tanca", "Cerrar", "Itxi", "Pechar" } }
+                { "Close", new string[] { "Close", "Tanca", "Cerrar", "Itxi", "Pechar" } },
+                { "QrCode", new string[] { "Lightning QR code for a voluntary contribution", "QR Lightning per a una aportació voluntària", "QR Lightning para una aportación voluntaria", "Borondatezko ekarpena egiteko Lightning QR kodea", "QR Lightning para unha achega voluntaria" } }
             };
         }
     }

@@ -8,9 +8,11 @@ A small, open-source Windows tray app that keeps your computer awake with one cl
 
 ## Use
 
-1. Download and extract **Despert-1.0.0-portable.zip**, then open **Despert.exe**. Requires Windows 10/11 and .NET Framework 4.8; no installation or administrator rights.
+1. Download and extract **Despert-1.0.1-portable.zip**, then open **Despert.exe**. Requires Windows 10/11 and .NET Framework 4.8; no installation or administrator rights.
 2. Click the cup near the clock to toggle. **No steam: inactive. Steam: active.** If it is hidden, drag it from the **^** tray area onto the taskbar.
 3. Right-click for **Activate/Deactivate**, **Start with Windows**, **About…**, or **Exit**.
+
+**Windows publisher notice:** the portable executable is currently unsigned, so Windows may show **Unknown publisher** or a SmartScreen warning. Version 1.0.1 does not remove that warning. See [signing status and options](docs/SIGNING.md).
 
 Despert always opens inactive. Once activated, it stays active until you switch it off or exit. There is no timer, mode selector, or success popup. Close an older copy before opening a new version.
 
@@ -20,7 +22,7 @@ Optional Windows startup is unchecked by default and applies only to your user a
 
 The interface follows the **Windows display language**: English, Catalan, Spanish, Basque, or Galician. Regional variants such as `es-MX` use the corresponding language. Other languages fall back to English. No language menu is needed.
 
-The **About** dialog contains the version, author, repository, portfolio, MIT license, and a small optional Value for Value section. Links only open after a click, and the Lightning address is copied only when requested.
+The **About** dialog contains the version, author, repository, portfolio, MIT license, and a small optional Value for Value section with a locally embedded Lightning QR. Links only open after a click, and the Lightning address is copied only when requested.
 
 ## How it works
 

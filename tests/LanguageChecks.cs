@@ -67,6 +67,7 @@ internal static class LanguageChecks
             }
             Check((string)language.Invoke(null, new object[] { null }) == "en", "null culture fallback");
             Check((string)language.Invoke(null, new object[] { CultureInfo.InvariantCulture }) == "en", "invariant culture fallback");
+            CheckQr(assembly, args[1]);
             foreach (string cultureName in new string[] { "en-US", "ca-ES", "es-ES", "eu-ES", "gl-ES" })
             {
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(cultureName);
@@ -100,5 +101,39 @@ internal static class LanguageChecks
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL " + ex); return 1; }
         finally { Thread.CurrentThread.CurrentUICulture = original; }
+    }
+
+    private static void CheckQr(Assembly assembly, string output)
+    {
+        List<string> rows = new List<string>();
+        using (Stream stream = assembly.GetManifestResourceStream("Despert.Lightning.modules"))
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            string row;
+            while ((row = reader.ReadLine()) != null) rows.Add(row);
+        }
+        Check(rows.Count == 45, "QR module count includes quiet zone");
+        using (Control qr = (Control)Activator.CreateInstance(assembly.GetType("Despert.LightningQr")))
+            foreach (int size in new int[] { 135, 180, 225, 270 })
+            {
+                qr.Size = new Size(size, size);
+                CreateHandles(qr);
+                using (Bitmap bitmap = new Bitmap(size, size))
+                {
+                    qr.DrawToBitmap(bitmap, new Rectangle(0, 0, size, size));
+                    int module = size / 45;
+                    for (int y = 0; y < size; y++)
+                        for (int x = 0; x < size; x++)
+                        {
+                            bool quiet = x / module < 4 || y / module < 4 || x / module >= 41 || y / module >= 41;
+                            bool black = rows[y / module][x / module] == '1';
+                            if (quiet && black) throw new InvalidOperationException("QR quiet zone must stay white");
+                            if (bitmap.GetPixel(x, y).ToArgb() != (black ? Color.Black : Color.White).ToArgb())
+                                throw new InvalidOperationException("QR module rendering changed at " + size);
+                        }
+                    Check(true, "QR modules are exact black/white pixels at " + size);
+                    bitmap.Save(Path.Combine(output, "lightning-" + size + ".png"));
+                }
+            }
     }
 }

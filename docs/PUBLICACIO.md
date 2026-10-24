@@ -3,7 +3,7 @@
 1. Revisa la nova aparença, l'inici opcional amb Windows i la visibilitat després de reiniciar. Confirma la prova d'ús local. La prova manual de més de dues hores correspon a la versió 0.2.0 i al dispositiu de l'usuari; no és una validació de tots els Windows gestionats.
 2. Crea un repositori públic amb el codi de `source/` o del ZIP de fonts. Conserva LICENSE, README, els scripts, els recursos i la carpeta `.github/`.
 3. Exclou `.tools/`, `build/` i `dist/`, tal com indica `.gitignore`. No hi afegeixis els registres privats del CLI ni altres projectes.
-4. Crea una publicació per a l'etiqueta `v1.0.0` i adjunta `Despert-1.0.0-portable.zip`, `Despert-1.0.0-source.zip`, `Despert-1.0.0-complete.zip` i `Despert-1.0.0-SHA256SUMS.txt`.
+4. Crea una publicació per a l'etiqueta `v1.0.1` i adjunta `Despert-1.0.1-portable.zip`, `Despert-1.0.1-source.zip`, `Despert-1.0.1-complete.zip` i `Despert-1.0.1-SHA256SUMS.txt`.
 5. Enllaça la publicació i el README al Nus. Recomana el paquet complet a qui vulgui tenir fonts i executable junts.
 
 El formulari de problemes de `.github/ISSUE_TEMPLATE/` permet recollir versió de Windows, versió de Despert, durada i context de la prova sense afegir opcions a l'aplicació.

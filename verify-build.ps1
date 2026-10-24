@@ -3,7 +3,7 @@ param(
     [string]$CompilerPath
 )
 $ErrorActionPreference = 'Stop'
-if (-not $ReleaseDirectory) { $ReleaseDirectory = Join-Path $PSScriptRoot 'dist\1.0.0' }
+if (-not $ReleaseDirectory) { $ReleaseDirectory = Join-Path $PSScriptRoot 'dist\1.0.1' }
 $releaseRoot = [IO.Path]::GetFullPath($ReleaseDirectory)
 $manifest = Get-Content -LiteralPath (Join-Path $releaseRoot 'BUILDINFO.json') -Raw | ConvertFrom-Json
 if (-not $manifest.deterministic) { throw 'La versio publicada no es va compilar en mode reproduible.' }

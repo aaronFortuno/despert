@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 — 2026-10-24
+
+- Added the author's existing Lightning QR to About, drawn locally with crisp integer-sized modules and a white quiet zone.
+- Retained the address and copy button; no payment/QR runtime package or network call was added.
+- Added an accessible QR description in all five languages and local rendering checks at multiple sizes.
+- Added friendly file metadata and documented the unresolved unknown-publisher warning and signing options. This release remains unsigned.
+
 ## 1.0.0 — 2026-10-24
 
 First public release.
