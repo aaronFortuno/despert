@@ -1,0 +1,29 @@
+name: Report a problem / Comunica un problema
+description: Describe behavior or appearance problems. English or any supported app language is welcome.
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Despert version
+      placeholder: e.g. 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version and display language
+      placeholder: e.g. Windows 11 24H2, Catalan
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe expected and observed behavior. Do not include private documents or school data.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Test context
+      description: When relevant, include idle time, battery/mains, session lock, light/dark theme and display scaling.

@@ -1,0 +1,5 @@
+# Keep compiler inputs identical in Git clones and exported source archives.
+* text=auto eol=lf
+*.ico binary
+*.png binary
+*.zip binary

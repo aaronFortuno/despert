@@ -1,0 +1,6 @@
+/dist/
+/build/
+/tmp/
+/.tools/
+*.user
+*.pdb

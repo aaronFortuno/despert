@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "packages": [
+    {
+      "id": "Microsoft.Net.Compilers.Toolset",
+      "version": "4.14.0",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.compilers.toolset/4.14.0/microsoft.net.compilers.toolset.4.14.0.nupkg",
+      "archive": "compiler.nupkg",
+      "sha256": "941a9cf3ea618d88d01a3dd6b1a45a06bcf07716a9f81ce4031caa3edd24a845",
+      "directory": "compiler-4.14.0",
+      "entry": "tasks/net472/csc.exe"
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies.net48",
+      "version": "1.0.3",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg",
+      "archive": "references.nupkg",
+      "sha256": "8a7e348538e7eb91351696911689f49e3d4f63f8bab517432bbe159b8b1104a2",
+      "directory": "references-1.0.3",
+      "entry": "build/.NETFramework/v4.8/mscorlib.dll"
+    }
+  ]
+}
