@@ -1,0 +1,61 @@
+name: Build Despert (manual)
+
+'on':
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manual-build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify unsigned packages
+    runs-on: windows-2022
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Prepare pinned Microsoft build tools
+        run: .\prepare-toolchain.ps1
+
+      - name: Build and run passive local checks
+        run: .\build.ps1 -Test
+
+      - name: Package and verify a fresh rebuild
+        run: .\package.ps1 -SkipBuild
+
+      - name: Verify exported source in another directory
+        run: .\tools\VerifyExport.ps1
+
+      - name: Record source and workflow provenance
+        run: |
+          $provenance = [ordered]@{
+            repository = $env:GITHUB_REPOSITORY
+            commit = $env:GITHUB_SHA
+            ref = $env:GITHUB_REF
+            workflow = $env:GITHUB_WORKFLOW
+            runId = $env:GITHUB_RUN_ID
+            runAttempt = $env:GITHUB_RUN_ATTEMPT
+            runUrl = "$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"
+            signed = $false
+            signingStatus = 'SignPath application pending submission; no signing integration enabled.'
+          }
+          $provenance | ConvertTo-Json | Set-Content -LiteralPath dist/CI-PROVENANCE.json -Encoding UTF8
+
+      - name: Upload unsigned build artifacts
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: Despert-unsigned-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30

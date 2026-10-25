@@ -14,7 +14,7 @@ The author's name in file properties, the open-source license, GitHub hosting an
 | CA-issued code-signing certificate | Can sign the portable executable with a validated identity | A paid service, identity validation and protected signing keys. Vendor eligibility and terms must be checked before purchase. |
 | Microsoft Store with MSIX | Store signs an accepted MSIX package | A different packaged distribution, developer account, Store submission and acceptance; does not retroactively sign GitHub's portable executable. |
 
-SignPath is worth evaluating for this MIT project, but eligibility is **not assumed**. Its conditions also exclude tools that circumvent security measures. Because Despert can affect managed idle behavior, the project must describe its actual operation and let the Foundation assess that condition. No application has been submitted and no signing rights are claimed.
+SignPath is being evaluated for this MIT project, but eligibility is **not assumed**. Its conditions also exclude tools that circumvent security measures. Because Despert can affect managed idle behavior, the project must describe its actual operation and let the Foundation assess that condition. The application is being prepared and is pending submission; it has not been accepted and no signing rights are claimed. See the [Code signing policy](CODE_SIGNING_POLICY.md), [privacy policy](PRIVACY.md) and [manual build workflow](GITHUB_ACTIONS.md).
 
 Microsoft's current documentation limits Azure Artifact Signing identity validation for individuals to the USA and Canada; EU availability applies to organizations. It should not be presented as immediately available to a Spain-based individual without checking eligibility.
 

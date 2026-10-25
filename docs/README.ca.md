@@ -20,6 +20,8 @@ El diàleg **Sobre…** mostra versió, autor, repositori, portfoli, llicència 
 
 La interfície segueix l'idioma de visualització de Windows: català, castellà, euskera, gallec i anglès. Les variants regionals utilitzen la llengua corresponent; per a la resta, anglès.
 
+La sol·licitud a SignPath Foundation està pendent d'enviament i acceptació; les versions actuals continuen sense signar. Tens la [política de firma](CODE_SIGNING_POLICY.md), la [política de privacitat](PRIVACY.md) i el [workflow manual de GitHub Actions](GITHUB_ACTIONS.md). La primera execució remota encara l'ha de comprovar el mantenidor.
+
 Quan està actiu, demana a Windows mantenir el sistema i la pantalla actius. Després de 45 segons d'inactivitat de sessió envia un esdeveniment de ratolí sense desplaçament. L'entrada recent ajorna els impulsos i no s'envien mentre hi ha un botó del ratolí premut. No envia tecles, clics ni roda.
 
 Bloquejar, suspendre o desconnectar la sessió pausa els efectes; reprendre o desbloquejar els recupera si continuava activat. No canvia polítiques d'energia o de gestió. No té anuncis, comptes, telemetria, serveis ni drivers; funciona sense connexió. Només obre els enllaços de Sobre després d'un clic i només copia l'adreça quan ho demanes.

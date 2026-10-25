@@ -9,3 +9,5 @@ Requires Windows 10/11 and .NET Framework 4.8. Close the previous copy before op
 Downloads: **portable.zip** to use the app, **source.zip** for code, or **complete.zip** for matching executable and source. The SHA-256 manifest covers all three archives. The unsigned executable remains reproducible byte for byte from the supplied source and pinned build tools.
 
 Code and artwork: MIT. Checks were performed locally; interactive checks on the managed device remain manual.
+
+**Code signing policy:** the SignPath Foundation application is being prepared and is pending submission and acceptance. This release remains unsigned. [Code signing policy](https://github.com/aaronFortuno/despert/blob/main/docs/CODE_SIGNING_POLICY.md) · [Privacy policy](https://github.com/aaronFortuno/despert/blob/main/docs/PRIVACY.md) · [Manual GitHub Actions build](https://github.com/aaronFortuno/despert/actions/workflows/build.yml).

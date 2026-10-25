@@ -70,3 +70,7 @@ Created by **Aarón Fortuño**. If Despert is useful to you, you can give value 
 ## License
 
 [MIT](LICENSE) for the original code and artwork. The cup icons are original; no GNOME, Caffeine, Lucide, or SVG Repo assets are included. Microsoft build tools retain their own licenses and are downloaded from their official packages.
+
+## Code signing policy
+
+**SignPath Foundation application pending submission.** The application is being prepared; it has not yet been submitted or accepted. Current releases remain unsigned. See the [Code signing policy](docs/CODE_SIGNING_POLICY.md), [privacy policy](docs/PRIVACY.md) and [manual GitHub Actions build instructions](docs/GITHUB_ACTIONS.md). The first hosted workflow run remains a manual maintainer check.

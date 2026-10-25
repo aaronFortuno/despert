@@ -11,4 +11,5 @@ Aplicació local de safata per a Windows. Codi original sota MIT. Codex coordina
 - Publicar només quan l'usuari ho demani explícitament; ha autoritzat el repositori públic Despert i la primera versió. No executar l'aplicació activa automàticament. No alterar altres projectes ni la configuració global de Kimi.
 - Interfície en català, castellà, euskera, gallec i anglès, seleccionada per CurrentUICulture de Windows, amb fallback anglès. Mantenir claus i placeholders complets. Sobre inclou portfoli, repositori, MIT i V4V voluntari; no obrir xarxa ni copiar al porta-retalls sense clic explícit.
 - En projectes remots comprovats localment, la comprovació remota la fa l'usuari.
+- Aclariment de l'usuari del 25 d'octubre de 2026: la comprovació manual remota anterior es refereix a l'aspecte de publicacions com Pages. Autoritza l'agent a executar i revisar el workflow remot de compilació de Despert. No presentar la sol·licitud a SignPath ni afirmar-ne l'acceptació sense indicació de l'usuari.
 - Conservar compilació determinista i verificar el paquet de fonts net en una ruta diferent. No regenerar ICO automàticament en compilacions normals.
