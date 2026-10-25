@@ -2,6 +2,20 @@
 
 The workflow is deliberately manual. Pushing source or a tag does not launch it. No signing secrets, SignPath approval or automatic release publication are configured.
 
+## Verified hosted execution
+
+The [first hosted run](https://github.com/aaronFortuno/despert/actions/runs/40169235981) completed successfully on **25 October 2026**, for source commit `24ddad88206c6144c7e90f98ba44e99255c79739`. All build, passive-check, packaging, exported-source verification and upload steps passed.
+
+The artifact was downloaded and its executable compared with the published local 1.0.1 executable. Both have SHA-256:
+
+```
+92c3f2d4b3775f0be6881d145d36471750536ad14ac4747100ab819dd5ae42bc
+```
+
+The uploaded artifact is `Despert-unsigned-40169235981-1` (artifact ID `12589192046`), retained by GitHub for 30 days. Its success demonstrates a functioning build workflow, not SignPath acceptance, a digital signature or a guarantee for all managed devices. Later documentation-only commits do not change the tested application inputs.
+
+## Run another build
+
 To run the workflow from the GitHub interface:
 
 1. Open [Actions → Build Despert (manual)](https://github.com/aaronFortuno/despert/actions/workflows/build.yml).

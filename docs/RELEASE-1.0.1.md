@@ -11,3 +11,5 @@ Downloads: **portable.zip** to use the app, **source.zip** for code, or **comple
 Code and artwork: MIT. Checks were performed locally; interactive checks on the managed device remain manual.
 
 **Code signing policy:** the SignPath Foundation application is being prepared and is pending submission and acceptance. This release remains unsigned. [Code signing policy](https://github.com/aaronFortuno/despert/blob/main/docs/CODE_SIGNING_POLICY.md) · [Privacy policy](https://github.com/aaronFortuno/despert/blob/main/docs/PRIVACY.md) · [Manual GitHub Actions build](https://github.com/aaronFortuno/despert/actions/workflows/build.yml).
+
+The [first hosted GitHub Actions build](https://github.com/aaronFortuno/despert/actions/runs/40169235981) passed on 25 October 2026. The downloaded hosted executable matches this release's local unsigned build byte for byte, with SHA-256 `92c3f2d4b3775f0be6881d145d36471750536ad14ac4747100ab819dd5ae42bc`. Original release archives and tag have not been replaced.

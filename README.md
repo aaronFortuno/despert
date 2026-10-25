@@ -73,4 +73,4 @@ Created by **Aarón Fortuño**. If Despert is useful to you, you can give value 
 
 ## Code signing policy
 
-**SignPath Foundation application pending submission.** The application is being prepared; it has not yet been submitted or accepted. Current releases remain unsigned. See the [Code signing policy](docs/CODE_SIGNING_POLICY.md), [privacy policy](docs/PRIVACY.md) and [manual GitHub Actions build instructions](docs/GITHUB_ACTIONS.md). The first hosted workflow run remains a manual maintainer check.
+**SignPath Foundation application pending submission.** The application is being prepared; it has not yet been submitted or accepted. Current releases remain unsigned. See the [Code signing policy](docs/CODE_SIGNING_POLICY.md), [privacy policy](docs/PRIVACY.md) and [manual GitHub Actions build instructions](docs/GITHUB_ACTIONS.md). The [first hosted build](https://github.com/aaronFortuno/despert/actions/runs/40169235981) passed on 25 October 2026; its executable matches the published local 1.0.1 build byte for byte.

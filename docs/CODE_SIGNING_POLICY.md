@@ -17,7 +17,7 @@ Changes from other contributors are to be reviewed by the maintainer. Signing re
 
 The [manual GitHub Actions workflow](https://github.com/aaronFortuno/despert/actions/workflows/build.yml) prepares pinned Microsoft tools, builds the app, runs passive checks, packages it, and verifies a rebuild from exported source in another directory. Actions are pinned to full commit identifiers. The workflow only has repository read permission, does not retain checkout credentials and does not publish a release or sign a file.
 
-Its first remote execution is pending the maintainer's manual check. Local compilation/reproducibility checks do not constitute a successful GitHub Actions run. Artifacts identify the source commit and workflow run and are labelled unsigned.
+The maintainer explicitly authorized the first remote execution. The [hosted run for commit 24ddad8](https://github.com/aaronFortuno/despert/actions/runs/40169235981) completed successfully on 25 October 2026, including tests, packaging and exported-source verification. Its artifact was downloaded and its executable matched the published local 1.0.1 executable byte for byte. Artifacts identify the source commit and workflow run and are labelled unsigned. This successful build does not establish SignPath acceptance or signing integration.
 
 Current release verification compares the unsigned executable byte for byte. Before signing is enabled, the process must retain unsigned build hashes, validate Authenticode/timestamps and publish separate signed-distribution hashes. No signed release will be represented as identical byte for byte to a normal unsigned rebuild.
 
